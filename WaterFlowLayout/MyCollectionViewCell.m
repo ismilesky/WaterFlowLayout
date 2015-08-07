@@ -2,9 +2,7 @@
 //  MyCollectionViewCell.m
 //  WaterFlowLayout
 //
-//  Created by 小爪乎黑 on 15/7/29.
-//  Copyright (c) 2015年 李帅. All rights reserved.
-//
+
 
 #import "MyCollectionViewCell.h"
 
@@ -23,7 +21,7 @@
     return self;
 }
 
-// 写一个东西
+// 为了防止图片部分重叠
 - (void)layoutSubviews
 {
     [super layoutSubviews];
