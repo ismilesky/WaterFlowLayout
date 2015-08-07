@@ -2,8 +2,7 @@
 //  ViewController.m
 //  WaterFlowLayout
 //
-//  Created by 小爪乎黑 on 15/7/29.
-//  Copyright (c) 2015年 李帅. All rights reserved.
+
 //
 
 #import "ViewController.h"
@@ -35,12 +34,14 @@
     [self p_jsonData];
     
     
-//    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    // 自定义布局
     WaterFolwLayout *layout = [[WaterFolwLayout alloc] init];
     layout.itemSize = CGSizeMake(kWidth, kWidth);
     layout.sectionInsets = UIEdgeInsetsMake(kInsert, kInsert, kInsert, kInsert);
     layout.insertItemSpacing = kSpacing;
     layout.numberOfColumns = kColumn;
+    
+    // 设置代理
     layout.delegate = self;
     
     
@@ -69,7 +70,7 @@
     
     for (NSDictionary *dict  in array) {
         Model *m = [[Model alloc] init];
-        // KVC
+        // KVC赋值 （字典转模型）
         [m setValuesForKeysWithDictionary:dict];
         [self.dataAray addObject:m];
     }
@@ -79,6 +80,7 @@
 
 }
 
+#prarm mark -  Methods of Delegate
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
@@ -104,11 +106,10 @@
 
 
 
-// 获取每一个item的高度
+// 获取每一个item的高度 (实现代理中的方法)
 - (CGFloat)heightForItemIndexpath:(NSIndexPath *)indexPath
 {
     Model *m = self.dataAray[indexPath.item];
-    
     
     CGFloat h = (kWidth * m.height) / m.width;
     
