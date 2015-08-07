@@ -2,12 +2,10 @@
 //  WaterFolwLayout.h
 //  WaterFlowLayout
 //
-//  Created by 小爪乎黑 on 15/7/29.
-//  Copyright (c) 2015年 李帅. All rights reserved.
-//
+
 
 #import <UIKit/UIKit.h>
-
+// 代理
 @protocol WaterFlowLayoutDeleage <NSObject>
 // 获取每一个item的高度
 - (CGFloat)heightForItemIndexpath:(NSIndexPath *)indexPath;
@@ -25,8 +23,7 @@
 // 列数
 @property (nonatomic,assign)NSUInteger numberOfColumns;
 
-
-@property (nonatomic,weak)id<WaterFlowLayoutDeleage>delegate;// 代理
+@property (nonatomic,weak)id<WaterFlowLayoutDeleage>delegate;// 设置代理
 
 
 
